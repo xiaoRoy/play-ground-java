@@ -2,9 +2,6 @@ package com.learn.playground.rxtest;
 
 import io.reactivex.Observable;
 import io.reactivex.observers.TestObserver;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import org.junit.Before;
@@ -26,7 +23,7 @@ public class ObservableTest {
 
     interface Service {
         @GET("/")
-        Observable<String> body();
+        Observable<String> loadData();
         @GET("/") Observable<Response<String>> response();
     }
 
@@ -36,31 +33,15 @@ public class ObservableTest {
                 .baseUrl(server.url("/"))
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .client(getOkHttpClient())
                 .build();
         service = retrofit.create(Service.class);
-    }
-
-    private OkHttpClient getOkHttpClient(){
-        return new OkHttpClient.Builder().addNetworkInterceptor(new Interceptor() {
-            @Override
-            public okhttp3.Response intercept(Chain chain) throws IOException {
-                Request.Builder requsetBuilder = chain.request().newBuilder();
-                Request request = chain.request();
-                System.out.println("trail.host:" + request.url().host());
-                System.out.println("trail.port:" + request.url().port());
-                System.out.println("trail.path:" + request.url().encodedPath());
-                System.out.println("trail.url:" + request.url().toString());
-                return chain.proceed(requsetBuilder.build());
-            }
-        }).build();
     }
 
     @Test
     public void bodySuccess200() {
         server.enqueue(new MockResponse().setBody("Hi"));
         TestObserver<String> testObserver = TestObserver.create();
-        service.body().subscribe(testObserver);
+        service.loadData().subscribe(testObserver);
         testObserver.assertValueCount(1);
         testObserver.assertValue("Hi").assertComplete();
     }
