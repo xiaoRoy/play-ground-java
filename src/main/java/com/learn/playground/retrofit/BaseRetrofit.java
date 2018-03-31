@@ -2,9 +2,10 @@ package com.learn.playground.retrofit;
 
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
+import okhttp3.internal.cache.CacheInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
+
+import java.util.concurrent.TimeUnit;
 
 public class BaseRetrofit {
 
@@ -12,12 +13,21 @@ public class BaseRetrofit {
 
     private Retrofit retrofit;
 
-    private final OkHttpClient okHttpClient = new OkHttpClient();
+    private static OkHttpClient sBaseOkHttpClient;
+
+    static {
+        sBaseOkHttpClient = new OkHttpClient
+                .Builder()
+                .connectTimeout(3000, TimeUnit.MILLISECONDS)
+                .build();
+    }
+
+
+    protected void init(){
+
+    }
 
     private BaseRetrofit(){
-        Retrofit.Builder builder = new Retrofit.Builder();
-        retrofit = builder.client(okHttpClient)
-                .baseUrl("/").build();
     }
 
     public static BaseRetrofit getInstance(){
@@ -39,12 +49,13 @@ public class BaseRetrofit {
     }*/
 
   public void load(HttpUrl httpUrl){
-      Retrofit.Builder builder = retrofit.newBuilder();
   }
 
   public void load(String url){
 
   }
+
+
 
 
 }

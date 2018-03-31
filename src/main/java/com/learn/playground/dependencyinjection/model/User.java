@@ -1,5 +1,7 @@
 package com.learn.playground.dependencyinjection.model;
 
+import javax.inject.Inject;
+
 public class User {
     private final String firstName;
     private final String lastName;

@@ -1,21 +1,25 @@
 package com.learn.playground.dependencyinjection.dagger;
 
-import dagger.Component;
-import dagger.internal.DaggerCollections;
-
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
 public class UserApplication {
 
     @Inject
-    UserService userService;
+    public UserService userService;
 
     private UserComponent userComponent;
 
     public UserApplication() {
+        this.userComponent = DaggerUserComponent.builder().build();
+        this.userComponent.inject(this);
+    }
+
+    public void showUser(){
+        userService.showUser();
     }
 
     public static void main(String[] args) {
+        UserApplication app = new UserApplication();
+        app.showUser();
     }
 }
