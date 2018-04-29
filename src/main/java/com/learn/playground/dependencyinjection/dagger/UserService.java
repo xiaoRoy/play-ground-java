@@ -6,13 +6,11 @@ import javax.inject.Inject;
 
 public class UserService {
 
-    @Inject public User user;
-
     @Inject
     public UserService() {
     }
 
-    public void showUser(){
+    public void showUser(User user){
         System.out.println("User:" + user);
     }
 }

@@ -7,7 +7,7 @@ import dagger.Provides;
 public class UserServiceModule {
 
     @Provides
-    UserService provideUserService(){
+    UserService providesUserService(){
         return new UserService();
     }
 }
