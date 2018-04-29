@@ -6,12 +6,12 @@ import dagger.Provides;
 
 import javax.inject.Singleton;
 
-@Module
+//@Module
 public class UserModule {
 
-    @Provides
-    @Singleton
-    User provideUser(){
+//    @Provides
+//    @Singleton
+    User providesUser(){
         return new User("Jack", "Smith");
     }
 }
