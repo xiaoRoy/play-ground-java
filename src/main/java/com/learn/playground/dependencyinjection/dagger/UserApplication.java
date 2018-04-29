@@ -6,22 +6,22 @@ import javax.inject.Inject;
 
 public class UserApplication {
 
-    @Inject
-    public UserService userService;
+    @Inject public UserService userService;
 
-//    @Inject User user;
+    @Inject public User user;
 
     private UserComponent userComponent;
 
     public UserApplication() {
         this.userComponent = DaggerUserComponent.builder()
-                .userServiceModule(new UserServiceModule(new User("Jack", "Smith")))
+                .userServiceModule(new UserServiceModule())
+                .userModule(new UserModule())
                 .build();
         this.userComponent.inject(this);
     }
 
     public void showUser(){
-        userService.showUser();
+        userService.showUser(user);
     }
 
     public static void main(String[] args) {
