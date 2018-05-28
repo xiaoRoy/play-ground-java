@@ -5,15 +5,19 @@ import java.util.List;
 
 public class FootballManagementSystem {
 
-    private List<FootballPlayer> players = new ArrayList<>();
+    private List<FootballPlayer> footballPlayers = new ArrayList<>();
+
+    public void addPlayer(FootballPlayer footballPlayer){
+        footballPlayers.add(footballPlayer);
+    }
 
     public void handle(CoachType coachType) {
         switch (coachType) {
             case Coach:
-                players.forEach(FootballPlayer::getRating);
+                footballPlayers.forEach(FootballPlayer::getRating);
                 break;
             case OffensiveCoach:
-                players.forEach(footballPlayer -> {
+                footballPlayers.forEach(footballPlayer -> {
                     if(footballPlayer instanceof Forward){
                         Forward forward = (Forward)footballPlayer;
                         forward.getGoal();
@@ -24,7 +28,7 @@ public class FootballManagementSystem {
                 });
                 break;
             case DefensiveCoach:
-                players.forEach(footballPlayer -> {
+                footballPlayers.forEach(footballPlayer -> {
                     if(footballPlayer instanceof Midfielder){
                         Midfielder midfielder = (Midfielder)footballPlayer;
                         midfielder.getRating();
