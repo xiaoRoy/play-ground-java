@@ -1,4 +1,4 @@
-package com.learn.training.template;
+package com.learn.training.designpattern.template;
 
 
 public abstract class InterviewProcess {
