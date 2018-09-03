@@ -1,4 +1,4 @@
-package com.learn.training.decorator;
+package com.learn.training.designpattern.decorator;
 
 public abstract class CoffeeIngredient implements Ingredient {
 

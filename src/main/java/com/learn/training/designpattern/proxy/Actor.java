@@ -1,6 +1,4 @@
-package com.learn.training.proxy;
-
-import com.learn.training.proxy.IProxy;
+package com.learn.training.designpattern.proxy;
 
 public class Actor implements IProxy {
     @Override

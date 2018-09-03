@@ -1,7 +1,7 @@
-package com.learn.training.proxy.dynamicproxy;
+package com.learn.training.designpattern.proxy.dynamicproxy;
 
-import com.learn.training.proxy.Actor;
-import com.learn.training.proxy.IProxy;
+import com.learn.training.designpattern.proxy.Actor;
+import com.learn.training.designpattern.proxy.IProxy;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationHandler;

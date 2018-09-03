@@ -1,4 +1,4 @@
-package com.learn.training.observer;
+package com.learn.training.designpattern.observer;
 
 public class ObserverA implements Observer<WeatherData> {
     @Override

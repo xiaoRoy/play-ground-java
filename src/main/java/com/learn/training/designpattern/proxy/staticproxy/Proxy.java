@@ -1,6 +1,6 @@
-package com.learn.training.proxy.staticproxy;
+package com.learn.training.designpattern.proxy.staticproxy;
 
-import com.learn.training.proxy.IProxy;
+import com.learn.training.designpattern.proxy.IProxy;
 
 public class Proxy implements IProxy {
 
