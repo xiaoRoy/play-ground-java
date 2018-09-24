@@ -2,6 +2,7 @@ package com.learn.playground.dependencyinjection.vehicle;
 
 import com.learn.playground.dependencyinjection.model.Brand;
 import com.learn.playground.dependencyinjection.model.Engine;
+import com.learn.playground.dependencyinjection.model.User;
 import dagger.Module;
 import dagger.Provides;
 
@@ -19,5 +20,10 @@ public class VehiclesModule {
     @Singleton
     public Brand provideBrand(){
         return new Brand("Top");
+    }
+
+    @Provides
+    public User provideUser(){
+        return new User("Mary", "Jane");
     }
 }
