@@ -11,7 +11,7 @@ public class TestVehiclesApp {
     public void test_get_user(){
         VehiclesApp vehiclesApp = new VehiclesApp();
         VehiclesComponent component = DaggerVehiclesComponent.create();
-        component.inject(vehiclesApp);
+        component.injectUser(vehiclesApp);
         Assert.assertNotNull(vehiclesApp.getUser());
     }
 

@@ -11,7 +11,8 @@ import javax.inject.Singleton;
 public interface VehiclesComponent {
     Car buildCar();
 
-    void inject(VehiclesApp vehiclesApp);
+    void injectUser(VehiclesApp vehiclesApp);
 
+    //provideVehiclesApp
     VehiclesApp injectUserSecond();
 }
