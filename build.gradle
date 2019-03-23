@@ -29,3 +29,14 @@ dependencies {
     compile 'com.google.dagger:dagger:2.14.1'
     implementation 'com.google.code.gson:gson:2.8.4'
 }
+
+task runSpecificTest(type: Test, group:'verification'){
+    include 'com/learn/playground/gson/**'
+}
+
+/*
+test {
+    filter {
+        includeTestsMatching "com.learn.playground.gson.*"
+    }
+}*/
