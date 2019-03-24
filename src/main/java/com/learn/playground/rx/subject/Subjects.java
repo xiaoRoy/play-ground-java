@@ -5,11 +5,15 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.subjects.PublishSubject;
 
+import java.util.concurrent.TimeUnit;
+
 public class Subjects {
 
     private final PublishSubject<String> stringPublishSubject = PublishSubject.create();
 
     private final PublishSubject<Boolean> resultPublishSubject = PublishSubject.create();
+
+    private final PublishSubject<Long> longPublishSubject = PublishSubject.create();
 
     public void firstExample() {
         stringPublishSubject.subscribe(new Observer<String>() {
@@ -61,5 +65,11 @@ public class Subjects {
         Observable.just(1, 2, 3, 4, 5)
                 .doOnComplete(stringPublishSubject::onComplete)
                 .subscribe();
+    }
+
+    private void thirdExample() {
+        Observable<Long> longObservable = Observable.just(1L, 23L);
+        longPublishSubject.subscribe(System.out::println);
+        longObservable.subscribe(longPublishSubject);
     }
 }
