@@ -1,6 +1,6 @@
 package com.learn.training.designpattern.observer;
 
-public interface Observer<T> {
+interface Observer<T> {
 
     void update(T t);
 }
