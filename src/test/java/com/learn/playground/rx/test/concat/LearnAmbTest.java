@@ -66,40 +66,6 @@ public class LearnAmbTest {
 
     @Test
     public void test_ambTwo_secondError() {
-        Observable.just(1)
-                .flatMap(new Function<Integer, ObservableSource<Integer>>() {
-                    @Override
-                    public ObservableSource<Integer> apply(Integer integer) throws Exception {
-                        if(new Date().getTime() < 500) {
-                            return Observable.empty();
-
-                        }  else {
-                            return Observable.empty();
-                        }
-
-                    }
-                })
-        .subscribe(new Observer<Integer>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-
-            }
-
-            @Override
-            public void onNext(Integer integer) {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        });
         Observable<Integer> first = Observable.just(21);
         Observable<Integer> second = Observable.error(new IOException());
         TestObserver<Integer> testObserver = learnAmb.ambTwo(first, second).test();
