@@ -13,6 +13,7 @@ public class IndexOfField {
 
         @Override
         public boolean equals(Object another) {
+            System.out.println("RegistryGift.equals");
             if (this == another) return true;
             if (another == null || getClass() != another.getClass()) return false;
             RegistryGift that = (RegistryGift) another;
@@ -21,6 +22,7 @@ public class IndexOfField {
 
         @Override
         public int hashCode() {
+            System.out.println("RegistryGift.hashCode");
             return Objects.hash(id);
         }
     }
@@ -36,6 +38,7 @@ public class IndexOfField {
 
         @Override
         public boolean equals(Object another) {
+            System.out.println("CashFundRegistryGift.equals");
             if (this == another) return true;
             if (another == null || getClass() != another.getClass()) return false;
             if (!super.equals(another)) return false;
@@ -45,6 +48,7 @@ public class IndexOfField {
 
         @Override
         public int hashCode() {
+            System.out.println("CashFundRegistryGift.hashCode");
             return Objects.hash(super.hashCode(), cashFundId);
         }
 
