@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import org.mockito.Mockito;
 
 public class IndexOfFieldTest {
 
@@ -21,6 +21,20 @@ public class IndexOfFieldTest {
         Assert.assertEquals(0, registryGiftIndex);
         int cashFundRegistryGiftIndex = registryGifts.indexOf(cashFundRegistryGift);
         Assert.assertEquals(1, cashFundRegistryGiftIndex);
+    }
 
+    @Test
+    public void test_indexOf_equals() {
+        List<IndexOfField.RegistryGift> registryGifts = new ArrayList<>();
+        IndexOfField.RegistryGift registryGiftSpy = Mockito.spy(new IndexOfField.RegistryGift("a"));
+        registryGifts.add(registryGiftSpy);
+        IndexOfField.CashFundRegistryGift cashFundRegistryGiftSpy = Mockito.spy(new IndexOfField.CashFundRegistryGift("aa", "ca"));
+        registryGifts.add(cashFundRegistryGiftSpy);
+
+        registryGifts.indexOf(registryGiftSpy);
+        Mockito.verify(registryGiftSpy).equals(Mockito.any());
+
+        registryGifts.indexOf(cashFundRegistryGiftSpy);
+        Mockito.verify(cashFundRegistryGiftSpy).equals(Mockito.any());
     }
 }
