@@ -1,6 +1,7 @@
 package com.learn.playground.dependencyinjection.atm;
 
 import javax.annotation.Nonnull;
+import javax.inject.Inject;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -10,6 +11,10 @@ final public class CommandRouter {
 
     @Nonnull
     private final Map<String, Command> commands = Collections.emptyMap();
+
+    @Inject
+    CommandRouter() {
+    }
 
     @Nonnull
     Command.Status route(@Nonnull String input) {
