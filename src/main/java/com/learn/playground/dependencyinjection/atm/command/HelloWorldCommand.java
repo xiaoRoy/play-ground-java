@@ -1,14 +1,20 @@
 package com.learn.playground.dependencyinjection.atm.command;
 
+import com.learn.playground.dependencyinjection.atm.ouputter.Outputter;
+
 import javax.annotation.Nonnull;
 import javax.inject.Inject;
 import java.util.List;
 
 public class HelloWorldCommand implements Command {
 
+    @Nonnull
+    private final Outputter outputter;
+
 
     @Inject
-    public HelloWorldCommand() {
+    public HelloWorldCommand(@Nonnull Outputter outputter) {
+        this.outputter = outputter;
     }
 
     @Nonnull
