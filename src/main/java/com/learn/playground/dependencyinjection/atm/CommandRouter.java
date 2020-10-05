@@ -5,7 +5,10 @@ import com.learn.playground.dependencyinjection.atm.command.HelloWorldCommand;
 
 import javax.annotation.Nonnull;
 import javax.inject.Inject;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 final public class CommandRouter {
 
@@ -13,8 +16,8 @@ final public class CommandRouter {
     private final Map<String, Command> commands = new HashMap<>();
 
     @Inject
-    CommandRouter(@Nonnull HelloWorldCommand helloWorldCommand) {
-        commands.put(helloWorldCommand.key(), helloWorldCommand);
+    CommandRouter(@Nonnull Command command) {
+        commands.put(command.key(), command);
     }
 
     @Nonnull
