@@ -1,19 +1,20 @@
 package com.learn.playground.dependencyinjection.atm;
 
+import com.learn.playground.dependencyinjection.atm.command.Command;
+import com.learn.playground.dependencyinjection.atm.command.HelloWorldCommand;
+
 import javax.annotation.Nonnull;
 import javax.inject.Inject;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 final public class CommandRouter {
 
     @Nonnull
-    private final Map<String, Command> commands = Collections.emptyMap();
+    private final Map<String, Command> commands = new HashMap<>();
 
     @Inject
-    CommandRouter() {
+    CommandRouter(@Nonnull HelloWorldCommand helloWorldCommand) {
+        commands.put(helloWorldCommand.key(), helloWorldCommand);
     }
 
     @Nonnull

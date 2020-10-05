@@ -1,4 +1,4 @@
-package com.learn.playground.dependencyinjection.atm;
+package com.learn.playground.dependencyinjection.atm.command;
 
 import javax.annotation.Nonnull;
 import java.util.List;
