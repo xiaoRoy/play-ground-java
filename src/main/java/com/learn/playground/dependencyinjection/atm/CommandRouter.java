@@ -13,11 +13,11 @@ import java.util.Map;
 final public class CommandRouter {
 
     @Nonnull
-    private final Map<String, Command> commands = new HashMap<>();
+    private final Map<String, Command> commands;
 
     @Inject
-    CommandRouter(@Nonnull Command command) {
-        commands.put(command.key(), command);
+    CommandRouter(@Nonnull Map<String, Command> commands) {
+        this.commands = commands;
     }
 
     @Nonnull

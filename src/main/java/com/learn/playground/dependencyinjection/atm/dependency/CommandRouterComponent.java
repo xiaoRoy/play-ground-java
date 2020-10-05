@@ -5,7 +5,7 @@ import dagger.Component;
 
 import javax.annotation.Nonnull;
 
-@Component(modules = {LoginCommandModule.class, SystemOutModule.class})
+@Component(modules = {LoginCommandModule.class, SystemOutModule.class, HelloWorldModule.class})
 public interface CommandRouterComponent {
 
     @Nonnull
