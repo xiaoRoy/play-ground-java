@@ -24,4 +24,8 @@ public class Account {
     public BigDecimal getBalance() {
         return balance;
     }
+
+    public void deposit(@Nonnull BigDecimal amount) {
+        balance = balance.add(amount);
+    }
 }

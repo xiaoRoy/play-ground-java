@@ -2,9 +2,11 @@ package com.learn.playground.dependencyinjection.atm.data;
 
 import javax.annotation.Nonnull;
 import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.util.HashMap;
 import java.util.Map;
 
+@Singleton
 public class AccountDataBase {
 
     @Nonnull
