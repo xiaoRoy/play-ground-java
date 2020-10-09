@@ -1,7 +1,5 @@
 package com.learn.playground.dependencyinjection.twitter;
 
-import com.learn.playground.dependencyinjection.twitter.httpclient.HttpClient;
-
 import javax.annotation.Nonnull;
 
 public class Tweeter {

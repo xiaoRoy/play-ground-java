@@ -4,12 +4,16 @@ import com.learn.playground.dependencyinjection.twitter.httpclient.HttpClient;
 import com.learn.playground.dependencyinjection.twitter.httpclient.Reqeust;
 
 import javax.annotation.Nonnull;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
+@Singleton
 public class TwitterApi {
 
     @Nonnull
     private final HttpClient httpClient;
 
+    @Inject
     public TwitterApi(@Nonnull HttpClient httpClient) {
         this.httpClient = httpClient;
     }
