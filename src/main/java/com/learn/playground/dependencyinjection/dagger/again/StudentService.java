@@ -10,7 +10,7 @@ public class StudentService {
     public Student student;
 
 
-    @Inject
+//    @Inject
     public StudentService() {
     }
 
