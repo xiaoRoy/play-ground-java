@@ -1,6 +1,6 @@
 package com.learn.training.designpattern.observer;
 
-public interface Observable<T> {
+interface Observable<T> {
 
     void addObserver(Observer<T> observer);
 

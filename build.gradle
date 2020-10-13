@@ -5,21 +5,40 @@ plugins {
 }
 
 repositories {
+    google()
     mavenCentral()
     jcenter()
 }
-
-dependencies{
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+ext {
+    retrofitVersion = '2.4.0'
+    okHttpVersion = '3.11.0'
+}
+dependencies {
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion") {
+        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+    }
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
     compile "io.reactivex.rxjava2:rxjava:2.1.8"
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
 //    compile group: 'javax.inject', name: 'javax.inject', version: '1'
     implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:2.15.0'
-    testImplementation 'com.squareup.okhttp3:mockwebserver:3.8.0'
+    testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
     apt 'com.google.dagger:dagger-compiler:2.14.1'
     compile 'com.google.dagger:dagger:2.14.1'
     implementation 'com.google.code.gson:gson:2.8.4'
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
 }
+
+task runSpecificTest(type: Test, group:'verification'){
+    include 'com/learn/playground/gson/**'
+}
+
+/*
+test {
+    filter {
+        includeTestsMatching "com.learn.playground.gson.*"
+    }
+}*/
