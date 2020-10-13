@@ -12,6 +12,7 @@ public class StudentModule {
     @Provides
     @Nonnull
     Student provideStudent() {
+        System.out.println("provideStudent");
         return new Student("Smith", "Silver");
     }
 }

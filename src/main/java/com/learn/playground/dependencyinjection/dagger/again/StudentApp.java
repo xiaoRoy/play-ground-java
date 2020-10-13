@@ -2,6 +2,7 @@ package com.learn.playground.dependencyinjection.dagger.again;
 
 import com.learn.playground.dependencyinjection.dagger.again.dependency.DaggerStudentComponent;
 import com.learn.playground.dependencyinjection.dagger.again.dependency.StudentComponent;
+import com.learn.playground.dependencyinjection.dagger.again.dependency.StudentServiceModule;
 
 import javax.annotation.Nonnull;
 import javax.inject.Inject;
