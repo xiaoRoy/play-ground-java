@@ -21,6 +21,12 @@ public class StringToDoubleTest {
     @Test
     public void test_parse_gift_with_string_price(){
         StringToDouble parser = new StringToDouble();
+        /*
+        *
+        * https://google.github.io/gson/apidocs/com/google/gson/stream/JsonReader.html#nextDouble--
+        * public double nextDouble() throws IOException
+        * Returns the double value of the next token, consuming it. If the next token is a string, this method will attempt to parse it as a double using Double.parseDouble(String).
+        * */
         Assert.assertEquals(145.326, parser.parserGift(GIFT_JSON_STRING_PRICE).getPrice(), 0.0d);
     }
 
